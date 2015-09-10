@@ -5,6 +5,7 @@ while ($line = <>) {
     foreach $word (split(/\s+/, $line)) {
         chomp $word;
         $word =~ s/[^a-z]//;
-        print "$word\n";
+        $bigram_count{$last_word}{$word}++ if $last_word;
+        $last_word = $word
     }
 }
