@@ -15,6 +15,9 @@ Content-Type: text/html
 eof
 
 $color = param('fav_color');
+$color =~ s/</&lt;/g;
+$color =~ s/>/&gt;/g;
+
 if (defined $color) {
     print "Your favourite colour is $color";
 }
